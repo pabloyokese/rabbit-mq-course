@@ -45,15 +45,6 @@ public class HeaderExchangeProducer {
                                 .build();
                         rabbitTemplate.convertAndSend("x.headers-exchange", "", message);
                         log.info("sending message with headers message {}", archivo);
-                        if (archivo.getFormato().equals("log") || archivo.getTipo().equals("log")) {
-                            log.info("---------- {}", "q.log");
-                        } else if (archivo.getFormato().equals("pdf") && archivo.getTipo().equals("reporte")) {
-                            log.info("---------- {}", "q.report");
-                        } else if (archivo.getFormato().equals("zip") && archivo.getTipo().equals("reporte")) {
-                            log.info("---------- {}", "q.reportzip");
-                        } else {
-                            log.info("---------- El mensaje sera descartado");
-                        }
 
                     } catch (JsonProcessingException e) {
                         throw new RuntimeException("Error to process json", e);
