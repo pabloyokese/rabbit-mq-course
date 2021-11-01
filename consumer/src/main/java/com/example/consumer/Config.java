@@ -1,7 +1,8 @@
 package com.example.consumer;
 
-import com.example.consumer.directexchange.*;
-import com.example.consumer.ejemplo.Consumer;
+import com.example.consumer.exchange.*;
+import com.example.consumer.mapear.Consumer;
+import com.example.consumer.tiemporeal.ConsumidorMensaje;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -32,7 +33,7 @@ public class Config {
         return new TopicExchangeConsumer();
     }
 
-    @Bean
+
     public HeaderExchangeConsumer headerExchangeConsumer(){
         return new HeaderExchangeConsumer();
     }
@@ -40,4 +41,9 @@ public class Config {
     public Consumer consumer() {
         return new Consumer(objectMapper);
     }
+
+    public ConsumidorMensaje consumidorMensaje(){
+        return new ConsumidorMensaje();
+    }
+
 }

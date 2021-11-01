@@ -1,4 +1,4 @@
-package com.example.producer.directexchange;
+package com.example.producer.exchange;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -8,17 +8,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Log4j2
 @Service
-public class DirectExchangeProducer {
-
+public class DefaultExchangeProducer {
+    
     private final RabbitTemplate rabbitTemplate;
 
-    /**
-     * Topologia
-     */
-
     public void sendMessageDirectExchange() {
-        String message = "This message is only for admin queue";
-        rabbitTemplate.convertAndSend("x.direct-exchange", "admin", message);
-        log.info("Sending message only to admin");
+        rabbitTemplate.convertAndSend("q.defaul-exchange", "Hola mundo");
+        log.info("El mensaje ha sido enviado to the queue.");
     }
 }

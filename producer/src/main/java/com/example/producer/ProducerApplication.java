@@ -1,14 +1,16 @@
 package com.example.producer;
 
-import com.example.producer.directexchange.*;
-import com.example.producer.ejemplo.Producer;
+import com.example.producer.exchange.*;
+import com.example.producer.mapear.Producer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @RequiredArgsConstructor
+@EnableScheduling
 public class ProducerApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
@@ -29,7 +31,7 @@ public class ProducerApplication implements CommandLineRunner {
 //        directExchangeProducer.sendMessageDirectExchange();
 //        fanoutExchangeProducer.sendMessage();
 //        topicExchangeProducer.sendMessage();
-        headerExchangeProducer.sendMessage();
+//        headerExchangeProducer.sendMessage();
     }
 }
 

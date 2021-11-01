@@ -1,4 +1,4 @@
-package com.example.consumer.ejemplo;
+package com.example.consumer.mapear;
 
 import com.example.consumer.dto.TestMensaje;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -12,7 +12,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 public class Consumer {
     private final ObjectMapper objectMapper;
 
-    @RabbitListener(queues = "q.helloworld")
+    @RabbitListener(queues = "q.mapper")
     public void getMessage(String message) {
         TestMensaje testMensaje = null;
         try {

@@ -1,4 +1,4 @@
-package com.example.producer.directexchange;
+package com.example.producer.exchange;
 
 import com.example.producer.dto.Archivo;
 import com.fasterxml.jackson.core.JsonProcessingException;

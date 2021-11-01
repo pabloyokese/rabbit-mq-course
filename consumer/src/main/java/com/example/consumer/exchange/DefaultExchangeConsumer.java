@@ -1,4 +1,4 @@
-package com.example.consumer.directexchange;
+package com.example.consumer.exchange;
 
 
 import lombok.RequiredArgsConstructor;
@@ -9,7 +9,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 @Log4j2
 public class DefaultExchangeConsumer {
 
-    @RabbitListener(queues = "q.helloworld")
+    @RabbitListener(queues = "q.defaul-exchange")
     public void getMessage(String message) {
         log.info("Obteniendo message {}", message);
     }

@@ -1,4 +1,4 @@
-package com.example.producer.ejemplo;
+package com.example.producer.mapear;
 
 import com.example.producer.dto.TestMensaje;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -15,10 +15,11 @@ public class Producer {
     private final ObjectMapper objectMapper;
     private final RabbitTemplate rabbitTemplate;
 
+
     public void sendMessageJson() {
         try {
             String mensaje = objectMapper.writeValueAsString(new TestMensaje(1l, "Hola mundo con un json"));
-            rabbitTemplate.convertAndSend("q.helloworld", mensaje);
+            rabbitTemplate.convertAndSend("q.tiempoReal", mensaje);
         } catch (JsonProcessingException e) {
             throw new RuntimeException("Error al procesar el json", e);
         }
